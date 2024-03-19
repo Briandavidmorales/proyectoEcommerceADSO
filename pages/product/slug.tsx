@@ -1,6 +1,9 @@
 import { Box, Grid, Typography, Button, Chip } from "@mui/material";
 import { ShopLayout } from "../../components/layouts"
+import { ProductSlidesShow } from "../../components/products";
 import { initialData } from '../../database/products';
+import { ItemCounter } from "../../components/ui";
+import { SizeSelector } from "../../components/products/SizeSelector";
 
 
 const product = initialData.products[0]
@@ -10,7 +13,7 @@ const ProductPage = () => {
     <ShopLayout title={product.title} pageDescription={product.description}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={7}>
-          {/*slideshadow*/}
+          <ProductSlidesShow images={product.images} />
         </Grid>
         <Grid item xs={12} sm={5}>
           <Box display='flex' flexDirection='column'>
@@ -21,6 +24,9 @@ const ProductPage = () => {
             <Box sx={{ my: 2 }} >
               <Typography variant="subtitle2">Cantidad</Typography>
               {/* itemCounter */}
+              <ItemCounter />
+              <SizeSelector sizes={product.sizes} />
+                
             </Box>
             <Button color="secondary" className='circular-btn'>
               Agregar a carrito
