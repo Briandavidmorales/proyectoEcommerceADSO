@@ -20,5 +20,5 @@ export default async function handler(
     
       await db.disconnect();
 
-  res.status(200).json({ name: 'Proceso realizado  ok' });
+  res.status(200).json({ name: 'Proceso realizado correctamente' });
 }
